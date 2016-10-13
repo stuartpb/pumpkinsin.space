@@ -111,8 +111,7 @@ Star.prototype.Draw = function () {
 
     f.fillStyle = this.C;
     if (this.image) {
-      pumpkinImageEl.src = this.image;
-      f.drawImage(pumpkinImageEl, this.X, this.Y, this.W, this.H);
+      f.drawImage(this.image, this.X, this.Y, this.W, this.H);
     } else {
     f.fillRect(this.X, this.Y, this.W, this.H);
     }
