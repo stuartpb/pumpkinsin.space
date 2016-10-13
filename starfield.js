@@ -107,7 +107,7 @@ Star.prototype.Draw = function () {
     if (this.image) {
       f.drawImage(this.image, this.X, this.Y, this.W, this.H);
     } else {
-    f.fillRect(this.X, this.Y, this.W, this.H);
+      f.fillRect(this.X, this.Y, this.W, this.H);
     }
 }
 
