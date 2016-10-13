@@ -31,7 +31,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
 var field = document.getElementById("field");
 var f = field.getContext("2d");
 
-var stars = {};
+var stars = new Set();
 var starIndex = 0;
 var numStars = 0;
 var acceleration = 1;
@@ -75,8 +75,7 @@ function Star() {
     this.age = 0;
     this.dies = 500;
 
-    starIndex++;
-    stars[starIndex] = this;
+    stars.add(this);
 
     this.ID = starIndex;
     this.C = "#ffffff";
@@ -99,8 +98,7 @@ Star.prototype.Draw = function () {
     if (this.X + this.W < 0 | this.X > field.width |
         this.Y + this.H < 0 | this.Y > field.height)
       {
-        delete stars[this.ID];
-        numStars--;
+        stars.delete(this);
 			}
 
     f.fillStyle = this.C;
@@ -124,13 +122,12 @@ function draw() {
     f.fillStyle = "rgba(0, 0, 0, 0.8)";
     f.fillRect(0, 0, field.width, field.height);
 
-    for (var i = numStars; i < starsToDraw; i++) {
+    for (var i = stars.size; i < starsToDraw; i++) {
         new Star();
-        numStars++;
     }
 
-    for (var star in stars) {
-        stars[star].Draw();
+    for (var star of stars) {
+        star.Draw();
     }
 }
 
