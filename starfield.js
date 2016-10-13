@@ -92,15 +92,9 @@ Star.prototype.Draw = function () {
 
     this.age++;
 
-    if (this.age == Math.floor(50 / acceleration) | this.age == Math.floor(150 / acceleration) | this.age == Math.floor(300 / acceleration)) {
-        if (this.image) {
-          this.W+=50;
-          this.H+=50;
-        } else {
-          this.W++;
-          this.H++;
-        }
-    }
+    var starGrowFactor = this.image? 50 : 1;
+
+    this.W = this.H = Math.max(1, this.age * starGrowFactor / 75);
 
     if (this.X + this.W < 0 | this.X > field.width |
         this.Y + this.H < 0 | this.Y > field.height)
