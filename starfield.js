@@ -1,8 +1,8 @@
 var pumpkinImages = [
-  "http://i.imgur.com/x6DeXSP.png",
-  "http://i.imgur.com/jiLxvQC.png",
-  "http://i.imgur.com/MKMIEAj.png",
-  "http://i.imgur.com/ufguJsr.png"
+  "https://i.imgur.com/x6DeXSP.png",
+  "https://i.imgur.com/jiLxvQC.png",
+  "https://i.imgur.com/MKMIEAj.png",
+  "https://i.imgur.com/ufguJsr.png"
 ].map(function(url) {
   var el = document.createElement('img');
   el.src = url;
